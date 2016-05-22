@@ -41,6 +41,7 @@ app.post('/auth/signup', userCtrl.userSignUp);
 app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
 app.put('/api/user/:id', userCtrl.updateUser);
 app.post('/api/benchmark/:id', userCtrl.addWodToUser);
+app.post('/api/metconWod/', userCtrl.addExistingWod);
 
 
 ////////////////

@@ -128,7 +128,7 @@ updateUser: function(req, res, next) {
         if (err) {
             console.log(err);
         }else{
-            
+
             res.status(200).json(data);
 
         }
@@ -150,7 +150,25 @@ updateUser: function(req, res, next) {
      }
    })
 
+ }, addExistingWod: function(req, res, next) {
+   User.findById(req.body.userId, function(err, resp){
+     if (err) {
+       res.status(500).json(err);
+     }else {
+
+       resp.wods.push({wod: req.body.postId, time: req.body.addWod});
+       resp.save(function(err, data) {
+         if (err){
+           res.status(500).send(err);
+         }else {
+           res.status(200).json(data);
+         }
+       })
+     }
+   })
+
  }
+
 
 
 }

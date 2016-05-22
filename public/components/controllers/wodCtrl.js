@@ -19,7 +19,12 @@ angular.module("crossfit").controller("wodCtrl", function($scope, wodService, se
 
         }
 
-
+        $scope.addCurrentWod = function(userId, postId, newComment, showIndex) {
+            wodService.addCurrentWod(userId, postId, newComment).then(function(res) {
+                wodService.getAllWods()
+            })
+        }
+        
     $scope.postComment = function(userId, postId, newComment, showIndex) {
         wodService.postComment(userId, postId, newComment).then(function(res) {
             wodService.getAllWods()

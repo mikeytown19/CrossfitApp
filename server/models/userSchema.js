@@ -9,8 +9,9 @@ var userSchema = new Schema({
     username:{type: String, unique: false},
     email:{type: String, required: false},
     admin: {type: Boolean, default: false, required: true},
-    Wods:[{time:Number,
-    wod:{type: mongoose.Schema.Types.ObjectId, ref: 'wod'}
+    wods:[{
+        time:String,
+        wod:{type: mongoose.Schema.Types.ObjectId, ref: 'Wod'}
     }],
     password:{type: String, required: false},
     bio:{type: String, required:false},
@@ -25,6 +26,11 @@ var userSchema = new Schema({
   }, {timestamps: true} ]
 })
 
+
+userSchema.pre('save', function(next) {
+    this.populate('wods.wod');
+    next();
+})
 /////////////////////////////////////////
 //Populate user info and messages info//
 ///////////////////////////////////////

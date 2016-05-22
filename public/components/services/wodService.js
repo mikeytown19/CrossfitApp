@@ -29,5 +29,15 @@ angular.module("crossfit").service("wodService", function($http) {
             url: 'api/wod/' + id +'/'+ daily
         })
     }
-
+    this.addCurrentWod = function (userId, postId, theWod) {
+        return $http({
+                method: "POST",
+                    url:'/api/metconWod/',
+                        data: {
+                          postId: postId,
+                          userId: userId,
+                          addWod: theWod
+                        }
+                    })
+                }
 });
