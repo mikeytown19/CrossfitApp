@@ -1,0 +1,29 @@
+
+    <div class="loginImage">
+
+
+
+
+            <div class="loginScreen">
+                    <form class=""  method="post" ng-click="login(user)">
+
+                    <div class="loginBox">
+                      <input  class='userNameLogin' ng-model="user.username"class="loginBoxText" onfocus="this.placeholder = ''"type="text" name="name" value="" placeholder="Username" onfocusout="this.placeholder = 'Username'">
+                    </div>
+
+
+                    <div class="loginBox">
+                      <input class='userNameLogin' ng-model="user.password"class="loginBoxText" type="password" onfocus="this.placeholder = ''" name="name" value="" placeholder="Password" onfocusout="this.placeholder = 'Password'">
+                    </div>
+
+                    <button  class='loginButton'><div class='submitText'>Login</div></button>
+                </form>
+
+
+                <div class="signUpText">
+                      <a ui-sref='signUp' id="white">Don't have an account ? <b>Sign Up</b> </a>
+
+                  </div>
+
+    </div>
+</div>

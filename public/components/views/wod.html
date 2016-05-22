@@ -1,0 +1,72 @@
+
+<navbar></navbar>
+
+<side-bar></side-bar>
+
+        <div class="wodHeader">
+            Wod
+        </div>
+
+
+        <div class="allWods" ng-repeat='wods in allWods | orderBy: "-createdAt"'>
+            <div class="wods">
+                    <div class="wodDate">
+                        {{wods.date | date:'shortDate'}}
+                    </div>
+
+                        {{wods.infoMessage}}
+
+
+                    <div class="wodType">
+                        {{wods.warmup}}
+
+                    </div>
+                    <div class="wodBody">
+                        {{wods.warmupBody}}
+
+                    </div>
+                        <div class="wodType">
+                            {{wods.skills}}
+
+                        </div>
+
+                        <div class="wodBody">
+                            {{wods.skillsBody}}
+
+                        </div>
+                        <div class="wodType">
+                            {{wods.metcon}}
+
+                        </div>
+                        <div class="wodBody">
+                            {{wods.wodBody}}
+
+                        </div>
+
+                        <i class="fa fa-comment-o commentLogo"  aria-hidden="true" ng-click="toggleComments()">comment</i>
+                        <div ng-hide='custom'>
+                            <textarea id ='customComment'placeholder='add comment' ng-model="newComment"></textarea>
+
+                            <button type="button"ng-click="postComment(currentUser._id, wods._id, newComment)" name="button">Submit</button>
+                        </div>
+
+                            <div class='commentReply'ng-repeat='comments in wods.comments track by $index'>
+                                {{comments.user.username}}:
+                                    {{comments.comment}}
+
+
+                            </div>
+
+                        <div class="borderBottom">
+
+                        </div>
+        </div>
+        <div >
+
+
+               </div>
+
+
+
+
+        </div>
